@@ -29,8 +29,8 @@ body {
   background-color: red;
   transition: background-color;
   opacity: 50%;
-  transition-duration: 1s;
-  transition-delay: 0.1s;
+  /* transition-duration: 1s;
+  transition-delay: 0.1s; */
 }
 .top {
   display: flex;
