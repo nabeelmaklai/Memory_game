@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 200px;
+  flex-wrap: wrap;
+  background-color: grey;
+}
+.box {
+  display: flex;
+  flex: 33% 33% 33%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 33%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.black {
+  background-color: red;
+  transition: background-color;
+  opacity: 50%;
+  transition-duration: 1s;
+  transition-delay: 0.1s;
+}
+.top {
+  display: flex;
+  align-items: end;
+  flex-direction: row;
+  justify-content: end;
+}
