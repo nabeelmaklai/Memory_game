@@ -3,6 +3,7 @@
 let pattern = []
 let playerPattern = []
 let board = document.querySelectorAll('.box')
+let checkButton = document.querySelector('.check')
 let score = 0
 let wrongMove = 0
 
@@ -36,6 +37,21 @@ const blink = () => {
     }
   }, 500)
 }
+let eachClick = 0
+checkButton.addEventListener('click', () => {
+  if (eachClick < 1) {
+    if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
+      console.log('wrong pattern')
+      playerPattern = []
+      console.log(playerPattern)
+      eachClick++
+    } else {
+      score += 10
+      console.log(score)
+      eachClick++
+    }
+  }
+})
 
 // Stack overflow https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
 
@@ -51,16 +67,6 @@ const blink = () => {
 //     console.log(pattern)
 //   }
 // }
-const checkPattern = () => {
-  for (let i = 0; i < board.length; i++) {
-    if (playerPattern[i] != pattern[i]) {
-      return true
-    } else {
-      return false
-      console.log('now thats good')
-    }
-  }
-}
 
 const rmClass = () => {
   for (let i = 0; i < board.length; i++) {
@@ -69,6 +75,15 @@ const rmClass = () => {
     }
   }
 }
+
+// const playGame = () => {
+//   if (wrongMove < 3) {
+//     generateRandom()
+//     blink()
+//     playerSelect()
+//   }
+// }
+
 const playerSelect = () => {
   let move = pattern.length
   let j = 0
@@ -82,15 +97,14 @@ const playerSelect = () => {
         setTimeout(() => {
           rmClass()
         }, 350)
-      } else if (j === move) {
-        for (let i = 0; i < board.length; i++) {
-          if (playerPattern[i] != pattern[i]) {
-            console.log('it worked')
-            wrongMove++
-            console.log(wrongMove)
-          }
-        }
       }
+      //  else if (j === move) {
+      //   for (let i = 0; i < board.length; i++) {
+      //     if (playerPattern[i] != pattern[i]) {
+      //       console.log('it worked')
+      //     }
+      //   }
+      // }
 
       // if (j === move) {
       //   playerPattern = []
@@ -109,31 +123,18 @@ const playerSelect = () => {
 
 generateRandom()
 generateRandom()
-generateRandom()
 
 blink()
 playerSelect()
 // checkPattern()
 
-// const blink = () => {
-//   setTimeout(() => {
-//     for (let i = 0; i < pattern.length; i++) {
-//       setTimeout(function timer() {
-//         document.querySelectorAll('.box')[pattern[i]].classList.remove('black')
-//         setTimeout(() => {
-//           if (!board[i].classList.contains('black')) {
-//             board[i].classList.add('black')
-//           }
-//         }, 1500)
-//       }, i * 2000)
-//     }
-//   }, 500)
-// }
-
-// const attBlink = () => {
+// const checkPattern = () => {
 //   for (let i = 0; i < board.length; i++) {
-//     board[i].addEventListener('click', () => {
-//       document.querySelectorAll('.box')[i].classList.toggle('black')
-//     })
+//     if (playerPattern[i] != pattern[i]) {
+//       return true
+//     } else {
+//       return false
+//       console.log('now thats good')
+//     }
 //   }
 // }
