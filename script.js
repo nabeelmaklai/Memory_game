@@ -11,6 +11,7 @@ let wrongMove = 0
 const generateRandom = () => {
   let num = Math.floor(Math.random() * 6)
   pattern.push(num)
+  console.log(pattern)
 }
 
 // Add a function to light up parts of the board
@@ -40,14 +41,24 @@ const blink = () => {
 
 // Have the player select one of the squares
 
+// const checkPattern = () => {
+//   if (playerPattern !== pattern) {
+//     wrongMove = wrongMove + 1
+//   } else {
+//     generateRandom()
+//     blink()
+//     playerSelect()
+//     console.log(pattern)
+//   }
+// }
 const checkPattern = () => {
-  if (playerPattern !== pattern) {
-    wrongMove = wrongMove + 1
-  } else {
-    generateRandom()
-    blink()
-    playerSelect()
-    console.log(pattern)
+  for (let i = 0; i < board.length; i++) {
+    if (playerPattern[i] != pattern[i]) {
+      return true
+    } else {
+      return false
+      console.log('now thats good')
+    }
   }
 }
 
@@ -71,24 +82,38 @@ const playerSelect = () => {
         setTimeout(() => {
           rmClass()
         }, 350)
+      } else if (j === move) {
+        for (let i = 0; i < board.length; i++) {
+          if (playerPattern[i] != pattern[i]) {
+            console.log('it worked')
+            wrongMove++
+            console.log(wrongMove)
+          }
+        }
       }
+
       // if (j === move) {
       //   playerPattern = []
-      //   console.log(wrongMove)
+      //   console.log(pattern)
+      //   console.log(playerPattern)
+
       //   generateRandom()
       //   blink()
       //   playerSelect()
       //   console.log(playerPattern)
       // }
-      checkPattern()
+      // checkPattern()
     })
   }
 }
 
 generateRandom()
+generateRandom()
+generateRandom()
+
 blink()
 playerSelect()
-checkPattern()
+// checkPattern()
 
 // const blink = () => {
 //   setTimeout(() => {
