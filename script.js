@@ -6,7 +6,7 @@ let board = document.querySelectorAll('.box')
 let score = 0
 let wrongMove = 0
 
-// Have JS generate random numbers from 1 to 6
+// Have JS generate random numbers from 1 to 5
 
 const generateRandom = () => {
   let num = Math.floor(Math.random() * 6)
@@ -14,11 +14,6 @@ const generateRandom = () => {
 }
 
 // Add a function to light up parts of the board
-
-// generateRandom()
-// generateRandom()
-// generateRandom()
-// generateRandom()
 
 const blink = () => {
   setTimeout(() => {
@@ -46,27 +41,15 @@ const blink = () => {
 // Have the player select one of the squares
 
 const checkPattern = () => {
-  for (let i = 0; i < board.length; i++) {
-    if (playerPattern[i] !== pattern[i]) {
-      wrongMove = wrongMove + 1
-    } else {
-      console.log('correct')
-    }
+  if (playerPattern !== pattern) {
+    wrongMove = wrongMove + 1
+  } else {
+    generateRandom()
+    blink()
+    playerSelect()
+    console.log(pattern)
   }
-  console.log('wrong move')
 }
-
-// const rmClass=(i)=>{
-//   (let i = 0; i < board.length; i++)
-//     document
-//       .querySelectorAll('.box')
-//       [pattern[i]].classList.contains('black')
-//   ) {
-//     document
-//       .querySelectorAll('.box')
-//       [pattern[i]].classList.remove('black')
-//   }
-// }
 
 const rmClass = () => {
   for (let i = 0; i < board.length; i++) {
@@ -89,6 +72,14 @@ const playerSelect = () => {
           rmClass()
         }, 350)
       }
+      // if (j === move) {
+      //   playerPattern = []
+      //   console.log(wrongMove)
+      //   generateRandom()
+      //   blink()
+      //   playerSelect()
+      //   console.log(playerPattern)
+      // }
       checkPattern()
     })
   }
@@ -118,16 +109,6 @@ checkPattern()
 //   for (let i = 0; i < board.length; i++) {
 //     board[i].addEventListener('click', () => {
 //       document.querySelectorAll('.box')[i].classList.toggle('black')
-//     })
-//   }
-// }
-// const selector = () => {
-//   for (let i = 0; i < board.length; i++) {
-//     board[i].addEventListener('click', () => {
-//       playerPattern.push(parseInt(board[i].innerHTML) - 1)
-//       checkPattern()
-//       console.log(playerPattern)
-//       console.log(score)
 //     })
 //   }
 // }
