@@ -4,8 +4,10 @@ let pattern = []
 let playerPattern = []
 let board = document.querySelectorAll('.box')
 let checkButton = document.querySelector('.check')
+let nextPattern = document.querySelector('.next')
 let score = 0
 let wrongMove = 0
+let eachClick = 0
 
 // Have JS generate random numbers from 1 to 5
 
@@ -37,7 +39,7 @@ const blink = () => {
     }
   }, 500)
 }
-let eachClick = 0
+
 checkButton.addEventListener('click', () => {
   if (eachClick < 1) {
     if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
@@ -51,6 +53,13 @@ checkButton.addEventListener('click', () => {
       eachClick++
     }
   }
+})
+nextPattern.addEventListener('click', () => {
+  eachClick = 0
+  playerPattern = []
+  generateRandom()
+  blink()
+  playerSelect()
 })
 
 // Stack overflow https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
