@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: row;
   width: 500px;
-  height: 300px;
+  height: 310px;
   flex-wrap: wrap;
   background-color: grey;
 }
@@ -25,10 +25,10 @@ body {
   height: 100px;
   box-sizing: border-box;
 
-  padding: 20px;
+  padding: 50px;
 }
 .black {
-  background-color: red;
+  background-color: rgb(0, 255, 238);
   transition: background-color;
   opacity: 50%;
   transition-duration: s;
@@ -39,5 +39,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  padding: 10px;
+  padding: 20px;
+  margin: 5px 10px;
+  flex-wrap: wrap;
 }

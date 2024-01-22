@@ -6,6 +6,7 @@ let board = document.querySelectorAll('.box')
 let checkButton = document.querySelector('.check')
 let nextPattern = document.querySelector('.next')
 let scoreDisplay = document.querySelector('.score')
+let reset = document.querySelector('.reset')
 let score = 0
 let wrongMove = 0
 let eachClick = 0
@@ -70,6 +71,18 @@ nextPattern.addEventListener('click', () => {
   }
 })
 
+reset.addEventListener('click', () => {
+  pattern = []
+  playerPattern.length = 0
+  console.log(pattern)
+  score = 0
+  generateRandom()
+  blink()
+  playerSelect()
+  previousLevel = 0
+  eachClick = 0
+})
+
 // Stack overflow https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
 
 // Have the player select one of the squares
@@ -130,10 +143,10 @@ const playerSelect = () => {
   }
 }
 
-generateRandom()
+// generateRandom()
 
-blink()
-playerSelect()
+// blink()
+// playerSelect()
 // checkPattern()
 
 // const checkPattern = () => {
