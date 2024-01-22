@@ -72,15 +72,18 @@ nextPattern.addEventListener('click', () => {
 })
 
 reset.addEventListener('click', () => {
-  pattern = []
-  playerPattern.length = 0
-  console.log(pattern)
-  score = 0
-  generateRandom()
-  blink()
-  playerSelect()
-  previousLevel = 0
-  eachClick = 0
+  location.reload()
+  // setTimeout(() => {
+  //   pattern = []
+  //   playerPattern.length = 0
+  //   console.log(pattern)
+  //   score = 0
+  //   generateRandom()
+  //   blink()
+  //   playerSelect()
+  //   previousLevel = 0
+  //   eachClick = 0
+  // }, 2000)
 })
 
 // Stack overflow https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
@@ -119,6 +122,21 @@ const playerSelect = () => {
         setTimeout(() => {
           rmClass()
         }, 350)
+        if (j === move) {
+          if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
+            // location.reload()
+            console.log('it worked')
+          } else {
+            setTimeout(() => {
+              playerPattern = []
+              score += 10
+              scoreDisplay.innerHTML = 'Score: ' + score
+              generateRandom()
+              blink()
+              playerSelect()
+            }, 500)
+          }
+        }
       }
       //  else if (j === move) {
       //   for (let i = 0; i < board.length; i++) {
@@ -142,7 +160,9 @@ const playerSelect = () => {
     })
   }
 }
-
+generateRandom()
+blink()
+playerSelect()
 // generateRandom()
 
 // blink()
