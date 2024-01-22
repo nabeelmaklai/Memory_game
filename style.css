@@ -8,16 +8,18 @@ body {
   align-items: center;
   justify-content: center;
   height: 100hv;
-  background-color: rgb(215, 249, 250);
+  background-color: rgb(166, 200, 235);
 }
 
 .board {
   display: flex;
   flex-direction: row;
   width: 500px;
-  height: 310px;
+  height: 410px;
   flex-wrap: wrap;
-  background-color: rgb(215, 249, 250);
+  background-color: rgb(166, 200, 235);
+  justify-content: space-around;
+  align-items: center;
 }
 .box {
   border-radius: 10px;
@@ -26,14 +28,14 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  width: 50%;
+  width: 40%;
   height: 100px;
   box-sizing: border-box;
   background-color: rgb(220, 245, 242);
   padding: 50px;
 }
 .black {
-  background-color: rgb(0, 255, 238);
+  background-color: rgb(223, 30, 94);
   transition: background-color;
   opacity: 50%;
   transition-duration: s;
