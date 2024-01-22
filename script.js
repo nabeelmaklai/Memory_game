@@ -3,8 +3,6 @@
 let pattern = []
 let playerPattern = []
 let board = document.querySelectorAll('.box')
-let checkButton = document.querySelector('.check')
-let nextPattern = document.querySelector('.next')
 let scoreDisplay = document.querySelector('.score')
 let reset = document.querySelector('.reset')
 let score = 0
@@ -44,62 +42,11 @@ const blink = () => {
   }, 500)
 }
 
-checkButton.addEventListener('click', () => {
-  if (eachClick < 1) {
-    if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-      console.log('wrong pattern')
-      playerPattern = []
-      console.log(playerPattern)
-      eachClick++
-    } else {
-      previousLevel++
-      score += 10
-      console.log(score)
-      eachClick++
-      scoreDisplay.innerHTML = 'Score: ' + score
-    }
-  }
-})
-nextPattern.addEventListener('click', () => {
-  if (previousLevel === currentLevel) {
-    eachClick = 0
-    playerPattern = []
-    generateRandom()
-    blink()
-    playerSelect()
-    previousLevel = 0
-  }
-})
-
 reset.addEventListener('click', () => {
   location.reload()
-  // setTimeout(() => {
-  //   pattern = []
-  //   playerPattern.length = 0
-  //   console.log(pattern)
-  //   score = 0
-  //   generateRandom()
-  //   blink()
-  //   playerSelect()
-  //   previousLevel = 0
-  //   eachClick = 0
-  // }, 2000)
 })
 
-// Stack overflow https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
-
 // Have the player select one of the squares
-
-// const checkPattern = () => {
-//   if (playerPattern !== pattern) {
-//     wrongMove = wrongMove + 1
-//   } else {
-//     generateRandom()
-//     blink()
-//     playerSelect()
-//     console.log(pattern)
-//   }
-// }
 
 const rmClass = () => {
   for (let i = 0; i < board.length; i++) {
@@ -134,40 +81,16 @@ const playerSelect = () => {
               generateRandom()
               blink()
               playerSelect()
-            }, 500)
+            }, 1000)
           }
         }
       }
-      //  else if (j === move) {
-      //   for (let i = 0; i < board.length; i++) {
-      //     if (playerPattern[i] != pattern[i]) {
-      //       console.log('it worked')
-      //     }
-      //   }
-      // }
-
-      // if (j === move) {
-      //   playerPattern = []
-      //   console.log(pattern)
-      //   console.log(playerPattern)
-
-      //   generateRandom()
-      //   blink()
-      //   playerSelect()
-      //   console.log(playerPattern)
-      // }
-      // checkPattern()
     })
   }
 }
 generateRandom()
 blink()
 playerSelect()
-// generateRandom()
-
-// blink()
-// playerSelect()
-// checkPattern()
 
 // const checkPattern = () => {
 //   for (let i = 0; i < board.length; i++) {
@@ -177,5 +100,41 @@ playerSelect()
 //       return false
 //       console.log('now thats good')
 //     }
+//   }
+// }
+// checkButton.addEventListener('click', () => {
+//   if (eachClick < 1) {
+//     if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
+//       console.log('wrong pattern')
+//       playerPattern = []
+//       console.log(playerPattern)
+//       eachClick++
+//     } else {
+//       previousLevel++
+//       score += 10
+//       console.log(score)
+//       eachClick++
+//       scoreDisplay.innerHTML = 'Score: ' + score
+//     }
+//   }
+// })
+// nextPattern.addEventListener('click', () => {
+//   if (previousLevel === currentLevel) {
+//     eachClick = 0
+//     playerPattern = []
+//     generateRandom()
+//     blink()
+//     playerSelect()
+//     previousLevel = 0
+//   }
+// })
+// const checkPattern = () => {
+//   if (playerPattern !== pattern) {
+//     wrongMove = wrongMove + 1
+//   } else {
+//     generateRandom()
+//     blink()
+//     playerSelect()
+//     console.log(pattern)
 //   }
 // }
