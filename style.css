@@ -51,5 +51,7 @@ body {
   flex-wrap: wrap;
 }
 .score {
-  font-size: larger;
+  font-size: x-large;
+  font-style: italic;
+  font-family: cursive;
 }
