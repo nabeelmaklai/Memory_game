@@ -56,32 +56,8 @@ const rmClass = () => {
     }
   }
 }
-const timer = setInterval(function () {
-  console.log(counter)
-  counter--
-  // if (counter === -2) {
-  //   console.log('timer')
-  //   clearInterval(timer)
-  //   // alert(
-  //   //   `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-  //   // )
-  // }
-}, 1000)
 
-const stopCounter = () => {
-  if (counter === 10) {
-    console.log('Timer works')
-  }
-}
-
-stopCounter()
-const playerSelectTimer = () => {
-  if (counter === 0) {
-    alert(
-      `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-    )
-    location.reload()
-  }
+const playerSelect = () => {
   let move = pattern.length
   let j = 0
   for (let i = 0; i < board.length; i++) {
@@ -90,36 +66,44 @@ const playerSelectTimer = () => {
         board[i].classList.add('black')
         playerPattern.push(i)
         j = j + 1
+        console.log(playerPattern)
         setTimeout(() => {
           rmClass()
         }, 350)
-      }
-      if (j === move) {
-        if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-          alert(
-            `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-          )
-          location.reload()
-        } else {
-          setTimeout(() => {
-            playerPattern = []
-            score += 10
-            scoreDisplay.innerHTML = 'Score: ' + score
-            generateRandom()
-            blink()
-            playerSelectTimer()
-          }, 1000)
+        if (j === move) {
+          if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
+            // location.reload()
+            alert(
+              `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
+            )
+            location.reload()
+          } else {
+            setTimeout(() => {
+              playerPattern = []
+              score += 10
+              scoreDisplay.innerHTML = 'Score: ' + score
+              generateRandom()
+              blink()
+              playerSelect()
+            }, 1000)
+          }
         }
       }
     })
   }
 }
+
 generateRandom()
 blink()
-playerSelectTimer()
-timer()
-
-// const playerSelect = () => {
+playerSelect()
+// stopCounter()
+// const playerSelectTimer = () => {
+//   if (counter === 0) {
+//     alert(
+//       `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
+//     )
+//     location.reload()
+//   }
 //   let move = pattern.length
 //   let j = 0
 //   for (let i = 0; i < board.length; i++) {
@@ -128,97 +112,27 @@ timer()
 //         board[i].classList.add('black')
 //         playerPattern.push(i)
 //         j = j + 1
-//         console.log(playerPattern)
 //         setTimeout(() => {
 //           rmClass()
 //         }, 350)
-//         if (j === move) {
-//           if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-//             // location.reload()
-//             alert(
-//               `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-//             )
-//             location.reload()
-//           } else {
-//             setTimeout(() => {
-//               playerPattern = []
-//               score += 10
-//               scoreDisplay.innerHTML = 'Score: ' + score
-//               generateRandom()
-//               blink()
-//               playerSelect()
-//             }, 1000)
-//           }
+//       }
+//       if (j === move) {
+//         if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
+//           alert(
+//             `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
+//           )
+//           location.reload()
+//         } else {
+//           setTimeout(() => {
+//             playerPattern = []
+//             score += 10
+//             scoreDisplay.innerHTML = 'Score: ' + score
+//             generateRandom()
+//             blink()
+//             playerSelectTimer()
+//           }, 1000)
 //         }
 //       }
 //     })
-//   }
-// }
-
-// const interval = setInterval(function () {
-//   console.log(counter)
-//   counter--
-//   if (counter === 0) {
-//     console.log('It worked')
-//     clearInterval(interval)
-//     console.log()
-//   }
-// }, 1000)
-
-// const ckeckTimer = () => {
-//   if (newCountdown) {
-//     console.log('The countdown counter works')
-//   } else console.log('doest work')
-// }
-// newCountdown()
-// ckeckTimer()
-// generateRandom()
-// blink()
-// playerSelect()
-
-// const checkPattern = () => {
-//   for (let i = 0; i < board.length; i++) {
-//     if (playerPattern[i] != pattern[i]) {
-//       return true
-//     } else {
-//       return false
-//       console.log('now thats good')
-//     }
-//   }
-// }
-// checkButton.addEventListener('click', () => {
-//   if (eachClick < 1) {
-//     if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-//       console.log('wrong pattern')
-//       playerPattern = []
-//       console.log(playerPattern)
-//       eachClick++
-//     } else {
-//       previousLevel++
-//       score += 10
-//       console.log(score)
-//       eachClick++
-//       scoreDisplay.innerHTML = 'Score: ' + score
-//     }
-//   }
-// })
-// nextPattern.addEventListener('click', () => {
-//   if (previousLevel === currentLevel) {
-//     eachClick = 0
-//     playerPattern = []
-//     generateRandom()
-//     blink()
-//     playerSelect()
-//     previousLevel = 0
-//   }
-// })
-// const checkPattern = () => {
-//   if (playerPattern !== pattern) {
-//     wrongMove = wrongMove + 1
-//   } else {
-//     generateRandom()
-//     blink()
-//     playerSelect()
-//     console.log(pattern)
 //   }
 // }
