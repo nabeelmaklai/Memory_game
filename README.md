@@ -23,3 +23,9 @@
 - Another function, which is the main game function then allows the player to attempt to match the pattern generated, each click stores the index number that is associated with teh clicked squre in an array.
 
 - Once the player attempts to match the array, and the length of the generated and the player array is similar, the array is parsed into a string and compared. If both the arrays are equal elements in the same index, the player array is cleared, another random number generated and the score incremented by 10. If the arrays are not the same the code displays an alert with the score and the game is then restarted.
+
+## :computer: Technologies Used
+
+- ![HTML badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+- ![CSS badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+- ![JS badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
