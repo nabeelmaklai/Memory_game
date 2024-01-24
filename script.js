@@ -12,7 +12,6 @@ let score = 0
 const generateRandom = () => {
   let num = Math.floor(Math.random() * 6)
   pattern.push(num)
-  console.log(pattern)
 }
 
 // Add a function to light up parts of the board
@@ -61,7 +60,7 @@ const playerSelect = () => {
         board[i].classList.add('black')
         playerPattern.push(parseInt(board[i].innerHTML) - 1)
         playerMove = playerMove + 1
-        console.log(playerPattern)
+
         setTimeout(() => {
           rmClass()
         }, 350)
