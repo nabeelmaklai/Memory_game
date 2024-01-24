@@ -28,6 +28,10 @@ The gaem is deployed on surge and can be reached by the following [link](https:/
 
 - Once the player attempts to match the array, and the length of the generated and the player array is similar, the array is parsed into a string and compared. If both the arrays are equal elements in the same index, the player array is cleared, another random number generated and the score incremented by 10. If the arrays are not the same the code displays an alert with the score and the game is then restarted.
 
+## Challenges faced
+
+> The most challenging aspect was getting the generated pattern to flash on the screen. Using DOM manipulation a class was added and removed from each square when a random pattern was generated as well as when the player entered their pattern. To visualize the effect time out function was used. The challenging aspect was getting the timimng and syncing of the function to make the game visually appealing.
+
 ## :computer: Technologies Used
 
 - ![HTML badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
