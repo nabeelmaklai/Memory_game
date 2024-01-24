@@ -50,7 +50,7 @@ const resetBtn = () => {
     rmClass()
     console.log('Generated pattern is: ' + pattern)
     console.log('player patter is: ' + playerPattern)
-  }, 5000)
+  }, 1000)
 }
 
 // reset.addEventListener('click', () => {
@@ -68,34 +68,34 @@ const rmClass = () => {
     }
   }
 }
-// const timer = setInterval(function () {
-//   console.log(counter)
-//   counter--
-// if (counter === -2) {
-//   console.log('timer')
-//   clearInterval(timer)
-//   // alert(
-//   //   `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-//   // )
-// }
-// }, 1000)
+const timer = setInterval(function () {
+  console.log(counter)
+  counter--
+  if (counter === -2) {
+    console.log('timer')
+    clearInterval(timer)
+    // alert(
+    //   `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
+    // )
+  }
+}, 1000)
 
 const playerSelect = () => {
+  let playerMove = 0
   let move = pattern.length
-  let j = 0
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', () => {
-      if (j < move) {
+      if (playerMove < move) {
         board[i].classList.add('black')
         playerPattern.push(i)
-        j = j + 1
-        console.log(playerPattern)
+        playerMove = playerMove + 1
+        console.log('player patter is: ' + playerPattern)
+        // console.log(playerPattern)
         setTimeout(() => {
           rmClass()
         }, 350)
-        if (j === move) {
+        if (playerMove === move) {
           if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-            // location.reload()
             alert(
               `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
             )
@@ -108,6 +108,7 @@ const playerSelect = () => {
               generateRandom()
               blink()
               playerSelect()
+              clearInterval(timer)
             }, 1000)
           }
         }
@@ -119,71 +120,3 @@ const playerSelect = () => {
 generateRandom()
 blink()
 playerSelect()
-
-// const interval = setInterval(function () {
-//   console.log(counter)
-//   counter--
-//   if (counter === 0) {
-//     console.log('It worked')
-//     clearInterval(interval)
-//     console.log()
-//   }
-// }, 1000)
-
-// const ckeckTimer = () => {
-//   if (newCountdown) {
-//     console.log('The countdown counter works')
-//   } else console.log('doest work')
-// }
-// newCountdown()
-// ckeckTimer()
-// generateRandom()
-// blink()
-// playerSelect()
-
-// const checkPattern = () => {
-//   for (let i = 0; i < board.length; i++) {
-//     if (playerPattern[i] != pattern[i]) {
-//       return true
-//     } else {
-//       return false
-//       console.log('now thats good')
-//     }
-//   }
-// }
-// checkButton.addEventListener('click', () => {
-//   if (eachClick < 1) {
-//     if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-//       console.log('wrong pattern')
-//       playerPattern = []
-//       console.log(playerPattern)
-//       eachClick++
-//     } else {
-//       previousLevel++
-//       score += 10
-//       console.log(score)
-//       eachClick++
-//       scoreDisplay.innerHTML = 'Score: ' + score
-//     }
-//   }
-// })
-// nextPattern.addEventListener('click', () => {
-//   if (previousLevel === currentLevel) {
-//     eachClick = 0
-//     playerPattern = []
-//     generateRandom()
-//     blink()
-//     playerSelect()
-//     previousLevel = 0
-//   }
-// })
-// const checkPattern = () => {
-//   if (playerPattern !== pattern) {
-//     wrongMove = wrongMove + 1
-//   } else {
-//     generateRandom()
-//     blink()
-//     playerSelect()
-//     console.log(pattern)
-//   }
-// }

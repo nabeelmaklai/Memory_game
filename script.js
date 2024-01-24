@@ -54,18 +54,18 @@ const rmClass = () => {
 
 const playerSelect = () => {
   let move = pattern.length
-  let j = 0
+  let playerMove = 0
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', () => {
-      if (j < move) {
+      if (playerMove < move) {
         board[i].classList.add('black')
         playerPattern.push(parseInt(board[i].innerHTML) - 1)
-        j = j + 1
+        playerMove = playerMove + 1
         console.log(playerPattern)
         setTimeout(() => {
           rmClass()
         }, 350)
-        if (j === move) {
+        if (playerMove === move) {
           if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
             alert(
               `Wrong pattern, Game Over.your score  was ${score}, The game will now restart`

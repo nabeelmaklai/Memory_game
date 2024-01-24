@@ -6,10 +6,6 @@ let board = document.querySelectorAll('.box')
 let scoreDisplay = document.querySelector('.score')
 let reset = document.querySelector('.reset')
 let score = 0
-let wrongMove = 0
-let eachClick = 0
-let currentLevel = 1
-let previousLevel = 0
 let counter = 10
 
 // Have JS generate random numbers from 1 to 5
@@ -37,10 +33,10 @@ const blink = () => {
               .querySelectorAll('.box')
               [pattern[i]].classList.remove('black')
           }
-        }, 500)
-      }, i * 1500)
+        }, 250)
+      }, i * 1000)
     }
-  }, 500)
+  }, 250)
 }
 
 reset.addEventListener('click', () => {
@@ -59,18 +55,18 @@ const rmClass = () => {
 
 const playerSelect = () => {
   let move = pattern.length
-  let j = 0
+  let playerMove = 0
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', () => {
-      if (j < move) {
+      if (playerMove < move) {
         board[i].classList.add('black')
         playerPattern.push(i)
-        j = j + 1
+        playerMove = playerMove + 1
         console.log(playerPattern)
         setTimeout(() => {
           rmClass()
         }, 350)
-        if (j === move) {
+        if (playerMove === move) {
           if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
             // location.reload()
             alert(
@@ -96,43 +92,3 @@ const playerSelect = () => {
 generateRandom()
 blink()
 playerSelect()
-// stopCounter()
-// const playerSelectTimer = () => {
-//   if (counter === 0) {
-//     alert(
-//       `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-//     )
-//     location.reload()
-//   }
-//   let move = pattern.length
-//   let j = 0
-//   for (let i = 0; i < board.length; i++) {
-//     board[i].addEventListener('click', () => {
-//       if (j < move) {
-//         board[i].classList.add('black')
-//         playerPattern.push(i)
-//         j = j + 1
-//         setTimeout(() => {
-//           rmClass()
-//         }, 350)
-//       }
-//       if (j === move) {
-//         if (JSON.stringify(playerPattern) != JSON.stringify(pattern)) {
-//           alert(
-//             `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
-//           )
-//           location.reload()
-//         } else {
-//           setTimeout(() => {
-//             playerPattern = []
-//             score += 10
-//             scoreDisplay.innerHTML = 'Score: ' + score
-//             generateRandom()
-//             blink()
-//             playerSelectTimer()
-//           }, 1000)
-//         }
-//       }
-//     })
-//   }
-// }
