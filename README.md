@@ -10,7 +10,7 @@
 
 ## Link:
 
-The gaem is deployed on surge and can be reached by [this link] (https://galactic-code.surge.sh/)
+The gaem is deployed on surge and can be reached by [this link](https://galactic-code.surge.sh/)
 
 ## How to play the game
 
