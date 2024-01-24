@@ -13,7 +13,7 @@ let counter = 10
 const generateRandom = () => {
   let num = Math.floor(Math.random() * 6)
   pattern.push(num)
-  console.log(pattern)
+  // console.log(pattern)
 }
 
 // Add a function to light up parts of the board
@@ -48,8 +48,8 @@ const resetBtn = () => {
     playerSelect()
     scoreDisplay.innerHTML = 'Score: ' + 0
     rmClass()
-    console.log('Generated pattern is: ' + pattern)
-    console.log('player patter is: ' + playerPattern)
+    // console.log('Generated pattern is: ' + pattern)
+    // console.log('player patter is: ' + playerPattern)
   }, 1000)
 }
 
@@ -69,10 +69,10 @@ const rmClass = () => {
   }
 }
 const timer = setInterval(function () {
-  console.log(counter)
+  // console.log(counter)
   counter--
   if (counter === -2) {
-    console.log('timer')
+    // console.log('timer')
     clearInterval(timer)
     // alert(
     //   `Wrong pattern, Game Over. Your score  was ${score}, The game will now restart`
@@ -89,7 +89,7 @@ const playerSelect = () => {
         board[i].classList.add('black')
         playerPattern.push(i)
         playerMove = playerMove + 1
-        console.log('player patter is: ' + playerPattern)
+        // console.log('player patter is: ' + playerPattern)
         // console.log(playerPattern)
         setTimeout(() => {
           rmClass()

@@ -46,3 +46,7 @@ Some additional functionality that I might add are
 - Reset the game without reloading the page
 - Have a landing page that will allow the player to select the level
 - Have a storage function that would store the higeste score on each level
+
+## Credits
+
+W3 Schools was used to style the the nav bar. In particular the nav bar was designed using the following like ------
