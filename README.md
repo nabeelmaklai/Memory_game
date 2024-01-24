@@ -10,7 +10,7 @@
 
 ## Link:
 
-The gaem is deployed on surge and can be reached by [this link](https://galactic-code.surge.sh/)
+The gaem is deployed on surge and can be reached by the following [link](https://galactic-code.surge.sh/)
 
 ## How to play the game
 
@@ -39,6 +39,6 @@ The gaem is deployed on surge and can be reached by [this link](https://galactic
 Some additional functionality that I might add are
 
 - Have a timer included in the hardest mode
-- Reset the game without relaoding the page
+- Reset the game without reloading the page
 - Have a landing page that will allow the player to select the level
 - Have a storage function that would store the higeste score on each level
