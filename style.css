@@ -43,7 +43,7 @@ body {
 }
 .top {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 300px;
   padding: 20px;
