@@ -52,4 +52,4 @@ Some additional functionality that I might add are
 
 ## Credits
 
-W3 Schools was used to style the the nav bar. In particular the nav bar was designed using the following like ------
+W3 Schools was used to style the the nav bar. In particular the nav bar was designed using the following [link](https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp)
